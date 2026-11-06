@@ -1,0 +1,21 @@
+{
+  "name": "qa-requirement-agent",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Evidence-first requirement review MVP with Feishu MCP integration",
+  "engines": {
+    "node": ">=24.0.0"
+  },
+  "scripts": {
+    "start": "node --env-file-if-exists=.env src/server.js",
+    "dev": "node --watch --env-file-if-exists=.env src/server.js",
+    "test": "node --test tests/*.test.js",
+    "check": "node --check src/server.js && node --check src/review.js && node --check src/integrations.js && node --check src/workspace-login.js && node --check src/feishu-auth.js && node --check src/visual.js && node --check src/qa-workflows.js && node --check src/store.js && node --check public/app.js && node --check src/quality.js && node --check src/usage.js && node --check public/workspace.js"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.0.0",
+    "ajv": "^8.17.1",
+    "sharp": "^0.35.5"
+  }
+}
